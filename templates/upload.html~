@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}" />
+  </head>
+  
+<body>
+  <h1>{{session['h1']}}</h1>
+  <table>
+    <tr>
+      <td>
+	<form id = "form" action = "login">
+	  <input type = "submit" name = "submit" value = "LOGOUT"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "home">
+	  <input type = "submit" name = "submit" value = "HOME"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "feed">
+	  <input type = "submit" name = "submit" value = "FEED"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "work">
+	  <input type = "submit" name = "submit" value = "YOUR WORK"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "upload">
+	  <input type = "submit" name = "submit" value = "UPLOAD"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = {{session['action']}}>
+	  <input type = "submit" name = "submit" value = {{session['pageButton']}}>
+	</form>
+      </td>
+  </tr>
+  </table>
+  
+  <h2>UPLOAD A VIDEO</h2>
+
+  <form action = "/uploader" name = "upload" method = "POST" enctype = "multipart/form-data">
+    <p>Video Title: <input type = "text" name = "name"/></p>
+    <input type = "file" name = "file" />
+    <input type = "submit" value = "SUBMIT"/>
+  </form>
+</body>
+</html>

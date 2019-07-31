@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel = "stylesheet" href = "./static/style.css" />
+  </head>
+  
+<body>
+  <h1>JER-SHARE</h1>
+  <form id = "form" action = "createNew">
+    <input type = "submit" name = "submit" value = "CREATE NEW"/>
+  </form>
+  
+  <h2>LOGIN</h2>
+    
+  <form id="form" method="post">  
+    <p>Userid:   <input type="text" name="userid" /> </p>
+    <p>Password: <input type="password" name="password" /> </p>
+  
+    <input type="submit" name="submit" value="LOGIN"/>
+  </form>
+
+</body>
+</html>

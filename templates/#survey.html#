@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<body>
+<h1>Vote for a book! {{session['word']}}</h1>
+
+<form id="form" action="" method="post">
+   {% for book in books %}
+      <input type="radio" name="vote" value="{{book.isbn}}">{{book.title}} by {{book.author}} [{{book.votes}}]</br>
+   {% endfor %}
+   <input type="submit" id="submit" name="submit" value="submit"/>
+</form>
+
+</body>
+</html>

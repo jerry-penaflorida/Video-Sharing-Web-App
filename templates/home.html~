@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel = "stylesheet" type = "text/css" href = "{{ url_for('static', filename = 'style.css') }}" >
+  </head>
+  
+<body>
+  <h1>{{session['h1']}}</h1>
+  <table>
+    <tr>
+      <td>
+	<form id = "form" action = "login">
+	  <input type = "submit" name = "submit" value = "LOGOUT"/>
+	</form>
+      </td>
+  </tr>
+  </table>
+  
+  <h2>{{session['home']}}</h2>
+  <table>
+    <tr>
+      
+      <td>
+	<img src = "https://s3-us-west-2.amazonaws.com/jerryfinalprojectimages/feed.jpg" alt = "Feed" height = "150" width = "210">
+      </td>
+      <td>
+	 <img src = "https://s3-us-west-2.amazonaws.com/jerryfinalprojectimages/yourwork.jpg" alt = "Your Work" height = "150", width = "210">
+      </td>
+      <td>
+	<img src = "https://s3-us-west-2.amazonaws.com/jerryfinalprojectimages/upload.png" alt = "Upload a Video" height = "150" width = "210">
+      </td>
+      <td>
+	<img src = "https://s3-us-west-2.amazonaws.com/jerryfinalprojectimages/request.jpg" alt = "Work Request" height = "150", width = "210">
+      </td>
+      
+      
+     
+    </tr>
+    
+    <tr>
+      <td>
+	<form id = "form" action = "feed">
+	  <input type = "submit" name = "submit" value = "FEED"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "work">
+	  <input type = "submit" name = "submit" value = "YOUR WORK"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "upload">
+	  <input type = "submit" name = "submit" value = "UPLOAD"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = {{session['action']}}>
+	  <input type = "submit" name = "submit" value = {{session['pageButton']}}>
+	</form>
+      </td>
+  </tr>
+  </table>
+</body>
+</html>

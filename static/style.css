@@ -1,0 +1,52 @@
+h1
+{
+    font-family: "Arial Black", Gadget, sans-serif;
+    background-color: red;
+    color: white;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+h2
+{
+    font-family: "Arial Black", Gadget, sans-serif;
+    background-color: grey;
+    color: white;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+h3
+{
+    font-family: "Verdana";
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+p
+{
+    font-family: "Verdana";
+}
+img
+{
+    border: 15px solid #C0C0C0;
+}
+video
+{
+    border: 15px solid #808080;
+    border-radius: 7px;
+}
+input[type=submit]
+{
+    font-family: "Arial Black", Gadget, sans-serif;
+    border-radius: 4px;
+    background-color: #B22222;
+    color: white;
+}
+input[type=submit]:hover
+{
+    background-color: #FF1493;
+}
+td
+{
+    text-align:center;
+}
+

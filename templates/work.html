@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}" />
+  </head>
+  
+<body>
+  <h1>{{session['h1']}}</h1>
+  <table>
+    <tr>
+      <td>
+	<form id = "form" action = "login">
+	  <input type = "submit" name = "submit" value = "LOGOUT"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "home">
+	  <input type = "submit" name = "submit" value = "HOME"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "feed">
+	  <input type = "submit" name = "submit" value = "FEED"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "work">
+	  <input type = "submit" name = "submit" value = "YOUR WORK"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "upload">
+	  <input type = "submit" name = "submit" value = "UPLOAD"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = {{session['action']}}>
+	  <input type = "submit" name = "submit" value = {{session['pageButton']}}>
+	</form>
+      </td>
+      
+  </tr>
+  </table>
+  
+  <h2>YOUR WORK</h2>
+  
+  {% for video in videos  %}
+  
+  <h3>{{video.name}}</h3>
+  
+  <video width = "480" controls>
+    <source src = {{video.rawname}} type = "video/mp4">
+  </video>
+    <p>posted by: <b>{{video.userid}}</b>  |  <b>{{video.likes}}</b> Likes</p>
+
+   
+  <p><b>COMMENTS</b></p>
+  <div id={{video.name.replace(" ", "_")}}>    
+  {% for comment in video.comments %}
+  <form id = "form" method = "post" action = "deleteComment">
+  <input type = "hidden" name = "name" value = {{video.name.replace(" ", "_")}}>
+  <input type = "hidden" name = "comment" value = {{comment.replace(" ", "_")}}>  
+  <p>{{comment}} <input type = "submit" method = "post" value = "DEL"></p>
+  </form>
+  {% endfor %}
+  </div>
+  
+    <form id = "form" method = "post" action = "comment">
+    <input type = "hidden" name = "name" value = {{video.name.replace(" ", "_")}}>
+    <p>Comment:</p>
+    <textarea rows = "3" cols = "63" name = "comment"></textarea>
+    <input type = "submit" name = "submit" value = "POST"/>
+    </form>
+    
+   <form id = "form" method = "post" action = "deleteVideo">
+   <input type = "hidden" name = "name" value = {{video.name.replace(" ", "_")}}>
+   <p><input type = "submit" method = "post" value = "DELETE VIDEO"></p>
+  
+   <script>
+     function {{video.name.replace(" ", "_")}}(){
+    var x = document.getElementById({{video.name.replace(" ", "_")}});
+    if (x.style.display === "none") {
+    x.style.display = "block";
+    } else {
+    x.style.display = "none";
+    }
+    }
+   </script>
+  {% endfor %}
+  
+  
+</body>
+</html>

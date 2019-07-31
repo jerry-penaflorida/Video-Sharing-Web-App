@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}" />
+
+    <!--DATE PICKER LINK-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+
+    <!--TIME PICKER LINK -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="http://jonthornton.github.io/jquery-timepicker/jquery.timepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://jonthornton.github.io/jquery-timepicker/jquery.timepicker.css" />
+    <script>
+    $(document).ready(function() {
+    $("#datepicker").datepicker();
+    });
+    </script>
+    <script>
+      $(document).ready(function() {
+      $("#timepicker").timepicker();
+      });
+    </script>
+  </head>
+  
+  <body>
+     
+  <h1>{{session['h1']}}</h1>
+  <table>
+    <tr>
+      <td>
+	<form id = "form" action = "login">
+	  <input type = "submit" name = "submit" value = "LOGOUT"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "home">
+	  <input type = "submit" name = "submit" value = "HOME"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "feed">
+	  <input type = "submit" name = "submit" value = "FEED"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "work">
+	  <input type = "submit" name = "submit" value = "YOUR WORK"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "upload">
+	  <input type = "submit" name = "submit" value = "UPLOAD"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "workRequest">
+	  <input type = "submit" name = "submit" value = "REQUEST"/>
+	</form>
+      </td>
+  </tr>
+  </table>
+  
+  <h2>WORK REQUEST</h2>
+  <p><b>CONTACT: </b></p>
+  <form id = "form" action = "newRequest" method = "post">
+  <p>Name: <input type = "text" name = "userid" value = {{session['userid']}}> Email: <input type = "text" name = "email"/></p>
+  <p><b>EVENT: </b></p>
+  <p>Date: <input type="text" id="datepicker" name = "date"/> Time: <input type = "text" id = "timepicker" name = "time"/></p>
+  <p><b>Title: </b><input type = "text" name = "title"</p>
+  <p>Request Description:</p>
+  <textarea rows = "10" cols = "55" name = "desc"></textarea>
+  <p><input type = "submit" name = "submit" value = "SEND REQUEST"/></p>
+  </form>
+  
+</body>
+</html>

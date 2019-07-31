@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}" />
+  </head>
+  
+  <body>
+    <h1>JER-SHARE</h1>
+    <h2>CREATE NEW ACCOUNT</h2>
+
+    <form id="form" method="post">
+      <p><b>USERID:</b>   <input type="text" name="userid"/> </p>
+      <p><b>PASSWORD: <input type="password" name="password"/> </p>
+      
+      <input type="submit" name="submit" value="submit"/>
+    </form>
+  </body>
+  
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}" />
+  </head>
+  
+<body>
+  <h1>{{session['h1']}}</h1>
+  <table>
+    <tr>
+      <td>
+	<form id = "form" action = "login">
+	  <input type = "submit" name = "submit" value = "LOGOUT"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "home">
+	  <input type = "submit" name = "submit" value = "HOME"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "feed">
+	  <input type = "submit" name = "submit" value = "FEED"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "work">
+	  <input type = "submit" name = "submit" value = "YOUR WORK"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "upload">
+	  <input type = "submit" name = "submit" value = "UPLOAD"/>
+	</form>
+      </td>
+      <td>
+	<form id = "form" action = "viewRequest">
+	  <input type = "submit" name = "submit" value = "REQUEST"/>
+	</form>
+      </td>
+  </tr>
+  </table>
+  
+  <h2>REQUEST</h2>
+  {% for row in rows %}
+  <h3>:</h3>
+  <p><b>Name:</b> {{row['userid']}} | <b>Email:</b> {{row['email']}}</p>
+  
+  <p><b>Date:</b> {{row['date']}} | <b>Time:</b> {{row['time']}}</p>
+  
+
+  <p><b>Title:</b> {{row['title']}}</p>
+  <p><b>Desc:</b></p>
+  <p>{{row['desc']}}</p>
+  <form id = "form" method = "post" action = "deleteRequest">
+    <input type = "hidden" name = "title" value = {{row['title']}}>
+    <input type = "submit" name = "submit" value = "DELETE REQUEST">
+  </form>
+  
+  {% endfor %}
+  <h3>:</h3>
+</body>
+</html>
